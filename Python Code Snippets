@@ -1,0 +1,240 @@
+# number of chars in words in a list
+str_list = ["hello", "", "goodbye", "wonderful", "I love Python"]
+for i in range(len(str_list)): //must be len() to not produce error
+    print(len(str_list[i]))
+
+# print each item in list and their type
+several_things = ["hello", 2, 4, 6.0, 7.5, 234352354, "the end", "", 99]
+for item in several_things:
+    print(item)
+for item in several_things:
+    print(type(item))
+
+# count number of chars in a string using accumulation pattern
+original_str = "The quick brown rhino jumped over the extremely lazy fox."
+num_chars = 0
+for char in original_str:
+    num_chars = num_chars + 1
+print(num_chars)
+
+# sum values of a string
+addition_str = "2+5+10+20"
+addition_list = addition_str.split("+")
+addition_int = map(int, addition_list) //converts string to int
+sum_val = 0
+for val in addition_int:
+    sum_val = sum_val + val
+print(sum_val)
+
+# calculate average of a string list of temperatures
+week_temps_f = "75.1,77.7,83.2,82.5,81.0,79.5,85.7"
+temp_list = week_temps_f.split(",")
+temp_int = map(float, temp_list)
+sum_temp = 0
+for temp in temp_int:
+    sum_temp = sum_temp + temp
+avg_temp = sum_temp/len(temp_int)
+print(avg_temp)
+
+# creating a list with numbers 0-67
+nums = list(range(68))
+print(nums)
+
+# creating a list of word lengths in a string
+original_str = "The quick brown rhino jumped over the extremely lazy fox"
+original_list = original_str.split(" ")
+num_words_list = []
+for i in original_list:
+    num_words_list = num_words_list + [len(i)] //list can only concatenate with lists
+
+# filling empty string with 7 Bs
+lett = ""
+for i in range(7):
+    lett = lett + "b"
+print(lett)
+
+# drawing a triangle
+import turtle
+wn = turtle.Screen()
+john = turtle.Turtle()
+for i in range(3):
+    john.forward(50)
+    john.left(120)
+
+# counting number of words in string that start and end with same letter
+sentence = "students flock to the arb for a variety of outdoor activities such as jogging and picnicking"
+sentence_list = sentence.split(" ")
+same_letter_count = 0
+for i in sentence_list:
+    if i[0] == i[-1]:
+        same_letter_count += 1
+
+# number of w's in string lists
+items = ["whirring", "wow!", "calendar", "wry", "glass", "", "llama","tumultuous","owing"]
+acc_num = 0
+for i in items:
+    if 'w' in i:
+        acc_num += 1
+print(acc_num)
+
+# number of words that contain a or e
+sentence = "python is a high level general purpose programming language that can be applied to many different classes of problems."
+sentence_list = sentence.split(" ")
+num_a_or_e = 0
+for i in sentence_list:
+    if 'a' and 'e' in i:
+        num_a_or_e +=1
+    elif 'a' in i:
+        num_a_or_e +=1
+    elif 'e' in i:
+        num_a_or_e +=1
+
+# number of vowels in string
+s = "singing in the rain and playing in the rain are two entirely different situations but both can be fun"
+vowels = ['a','e','i','o','u']
+num_vowels = 0
+for i in s:
+    if i in vowels:
+        num_vowels += 1
+
+# add -ed to a list of strings
+wrds = ["end", 'work', "play", "start", "walk", "look", "open", "rain", "learn", "clean"]
+past_wrds = []
+for wrd in wrds:
+    past_wrds = past_wrds + [wrd + "ed"]
+
+# creates an uppercase acronym
+stopwords = ['to', 'a', 'for', 'by', 'an', 'am', 'the', 'so', 'it', 'and', "The"]
+org = "The organization for health, safety, and education"
+org_l = org.split(" ")
+acro = ""
+for wrd in org_l:
+    first_let = wrd[0]
+    if wrd not in stopwords:
+        acro = acro + first_let.upper()
+print(acro)
+
+#checking to see if string is a palindrome (reversed string same a original)
+p_phrase = "was it a car or a cat I saw"
+r_phrase = ""
+for char in p_phrase:
+    r_phrase = char + r_phrase //creates a string that starts from the right
+print(p_phrase == r_phrase)
+
+# creates string with first two letters of each word separted by '. '
+stopwords = ['to', 'a', 'for', 'by', 'an', 'am', 'the', 'so', 'it', 'and', 'The']
+sent = "The water earth and air are vital"
+sent_l = sent.split(" ")
+acro = ""
+for wrd in sent_l:
+    letters = wrd[:2]
+    if wrd not in stopwords:
+        acro = acro + letters.upper() + ". "
+acro = acro[:-2]
+print(acro)
+
+# creating a message using a string with product info
+inventory = ["shoes, 12, 29.99", "shirts, 20, 9.99", "sweatpants, 25, 15.00", "scarves, 13, 7.75"]
+
+for item in inventory:
+    i = item.split(", ")
+    stock = i[1]
+    name = i[0]
+    cost = i[2]
+    print("The store has {} {}, each for {} USD.".format(stock, name, cost))
+
+#read number of chars in a text file
+prompt = open("school_prompt2.txt", 'r')
+contents = prompt.read()
+num_char = len(contents)
+print(num_char)
+prompt.close()
+
+#read number of lines in text file
+fileref = open("travel_plans2.txt", 'r')
+lines = fileref.readlines() //readlines() for lines, read() for chars	
+num_lines = len(lines)
+print(num_lines)
+fileref.close()
+
+#inheriting Simple() class
+class Advanced(Simple):
+  def Inverse(self,x,y):
+    return (1/Simple.Add(self,x,y))
+
+#In Python, what is the correct way to develop a class called Person that has parameters in the initialize function called name, age, and sex?
+class Person:
+  def __initialize__(self, name, age, sex):
+    self.name = name
+    self.age = age
+    self.sex = sex
+
+#Which code snippet can you use to print the number of digits in the number variable? You can assume this number is always positive and always less than 10,000.
+
+if (number>=1000):
+  print(4)
+elif (number>=100):
+  print(3)
+elif (number>=10):
+  print(2)
+else:
+  print(1)
+
+#13-Mar-2020 16:42:58
+from datetime import datetime
+now=datetime.now()
+print(now.strftime("%d-%b-%Y %H:%M:%S"))
+
+#How many days until your birthday (June 30th)?
+today=date.today()
+bday=date(today.year,6,30)
+diff=(bday-today).days
+if diff>0:
+  print("Birthday in %d days" % diff)
+else:
+  print("Birthday in %d days" % (diff+365))
+
+#print tomorrow's day of the week
+today=date.today()
+days=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
+print("Tomorrow will be "+days[(today.weekday()+1)%7])
+
+#You need to print the content of the "list.txt" file to the console. Which code can you use, assuming the file must already exist and must not be overwritten or created?
+f=open("list.txt",'r')
+print(f.read())
+
+Your program already imported the ZipFile module using from zipfile import ZipFile. How can you leverage this module to create a new zip archive and add a file to it?
+with ZipFile("archive.zip","w") as newzip:
+   newzip.write("file.txt")
+
+#printing html code of google homepage on console
+import urllib.request
+webUrl = urllib.request.urlopen("http://www.google.com")
+results = webUrl.read()
+print(results)
+
+#adding an item to xml file
+doc = xml.dom.minidom.parse("my.xml")
+newItem = doc.createElement("item")
+newItem.setAttribute("color", "yellow")
+newItem.setAttribute("size", "small")
+doc.firstChild.appendChild(newItem)
+
+#getting the name of skills in a JSON file
+The file:
+{
+    "name": "John",
+    "title": "Python Developer",
+    "skills": [{
+        "name": "coding",
+        "level": "expert"
+        },
+        {
+        "name": "documentation",
+        "level": "basic"
+    }]
+}
+
+Solution:
+for i in theJSON["skills"]:
+    print(i["name"])
